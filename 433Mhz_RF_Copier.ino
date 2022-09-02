@@ -10,24 +10,7 @@
 #define SCREEN_WIDTH 128 // OLED display width, in pixels
 #define SCREEN_HEIGHT 64 // OLED display height, in pixels
 
-// Declaration for SSD1306 display connected using software SPI (default case):
-//#define OLED_MOSI   D7
-//#define OLED_CLK   D5
-//#define OLED_DC    D2
-//#define OLED_CS    D8
-//#define OLED_RESET D3
-//Adafruit_SSD1306 display(SCREEN_WIDTH, SCREEN_HEIGHT,
-//                         OLED_MOSI, OLED_CLK, OLED_DC, OLED_RESET, OLED_CS);
-
-/* Comment out above, uncomment this block to use hardware SPI
-*/
-//  #define OLED_DC     D2
-//  #define OLED_CS     D8
-//  #define OLED_RESET  D3
-//  Adafruit_SSD1306 display(SCREEN_WIDTH, SCREEN_HEIGHT,
-//  &SPI, OLED_DC, OLED_RESET, OLED_CS);
-
-  #define OLED_RESET     -1 // Reset pin # (or -1 if sharing Arduino reset pin)
+#define OLED_RESET     -1 // Reset pin # (or -1 if sharing Arduino reset pin)
 #define SCREEN_ADDRESS 0x3C ///< See datasheet for Address; 0x3D for 128x64, 0x3C for 128x32
 Adafruit_SSD1306 display(SCREEN_WIDTH, SCREEN_HEIGHT, &Wire, OLED_RESET);
 
@@ -110,7 +93,6 @@ void setup() {
     Serial.println(F("SSD1306 allocation failed"));
     for(;;); // Don't proceed, loop forever
   }
-
 
   // Show initial display buffer contents on the screen --
   // the library initializes this with an Adafruit splash screen.
